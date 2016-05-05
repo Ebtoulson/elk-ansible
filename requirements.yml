@@ -1,0 +1,4 @@
+---
+- src: geerlingguy.nginx
+- src: mrlesmithjr.elk-kibana
+- src: geerlingguy.logstash

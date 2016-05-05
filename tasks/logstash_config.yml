@@ -1,0 +1,16 @@
+---
+
+# - name: Remove default Logstash filters
+#   sudo: true
+#   command: rm /etc/logstash/conf.d/*.conf
+
+- name: Create Logstash filters.
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/logstash/conf.d/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - tcp-syslog-json.conf
+  notify: restart logstash

@@ -1,4 +1,30 @@
 ---
 - hosts: all
-  tasks:
-    - include: 'tasks/install_nginx.yml'
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=86400
+
+  roles:
+    - { role: geerlingguy.nginx }
+    - {
+        role: elasticsearch,
+        es_instance_name: "node1",
+        es_config: {
+          http.port: 9200,
+          transport.tcp.port: 9300,
+          discovery.zen.ping.unicast.hosts: "localhost:9300"
+        }
+      }
+    - { role: geerlingguy.logstash }
+    - { role: mrlesmithjr.elk-kibana }
+
+  post_tasks:
+    - include: tasks/logstash_config.yml
+      become: true
+      become_method: "sudo"
+
+  vars:
+    es_version: "2.3.2"
+    kibana_version: "4.5.0"
+    kibana_server_name: "logs"

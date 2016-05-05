@@ -1,2 +1,1 @@
-[webserver]
-55.55.55.5
+logs ansible_ssh_host=192.168.9.90 ansible_ssh_port=22
