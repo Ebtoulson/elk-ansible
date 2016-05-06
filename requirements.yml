@@ -2,3 +2,5 @@
 - src: geerlingguy.nginx
 - src: mrlesmithjr.elk-kibana
 - src: geerlingguy.logstash
+- src: geerlingguy.java
+- src: geerlingguy.elasticsearch

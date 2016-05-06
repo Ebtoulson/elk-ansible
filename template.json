@@ -1,0 +1,21 @@
+{
+  "variables": {
+    "aws_access_key": "{{env `DEVOPS_AWS_ACCESS_KEY`}}",
+    "aws_secret_key": "{{env `DEVOPS_AWS_SECRET_KEY`}}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami": "ami-79457313",
+    "instance_type": "t2.micro",
+    "ssh_username": "root",
+    "subnet_id": "subnet-1c00b86a",
+    "ami_name": "elk-prototype {{timestamp}}"
+  }],
+  "provisioners": [{
+    "type": "ansible",
+    "playbook_file": "./playbook.yml"
+  }]
+}

@@ -1,8 +1,8 @@
 ---
 
-# - name: Remove default Logstash filters
-#   sudo: true
-#   command: rm /etc/logstash/conf.d/*.conf
+# name: Remove default Logstash filters
+- file: state=absent path=/etc/logstash/conf.d/
+- file: state=directory path=/etc/logstash/conf.d/
 
 - name: Create Logstash filters.
   copy:
