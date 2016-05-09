@@ -1,2 +1,3 @@
 .vagrant
 $HOME
+packer.log
