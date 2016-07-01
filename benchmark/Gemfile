@@ -1,0 +1,5 @@
+source_rubygems = 'https://rubygems.org'
+
+source source_rubygems do
+  gem 'syslog_ruby', '0.0.1'
+end
