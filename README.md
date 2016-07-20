@@ -27,6 +27,10 @@ LOGSTASH_HOST=logs ruby client.rb
 Don't want to send thousands of requests?
 Pass in `SLOW_DOWN` to the script to simulate traffic. 
 
+```
+LOGSTASH_HOST=logs SLOW_DOWN=true ruby client.rb
+```
+
 
 AWS
 ---
