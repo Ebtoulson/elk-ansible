@@ -10,7 +10,8 @@
   roles:
     - { role: geerlingguy.nginx }
     - { role: geerlingguy.java }
-    - { role: geerlingguy.elasticsearch }
+    - { role: elasticsearch_role,
+        elasticsearch_network_host: "0.0.0.0" }
     - { role: geerlingguy.logstash }
     - { role: mrlesmithjr.elk-kibana }
 
@@ -21,3 +22,4 @@
     es_version: "2.3.2"
     kibana_version: "4.5.0"
     kibana_server_name: "logs"
+    elasticsearch_network_host: "0.0.0.0"

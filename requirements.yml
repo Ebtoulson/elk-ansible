@@ -3,4 +3,6 @@
 - src: mrlesmithjr.elk-kibana
 - src: geerlingguy.logstash
 - src: geerlingguy.java
-- src: geerlingguy.elasticsearch
+- src: https://github.com/geerlingguy/ansible-role-elasticsearch
+  version: 2.1.0
+  name: elasticsearch_role
